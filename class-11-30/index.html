@@ -5,13 +5,18 @@
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     </head>
     <body>
-        Random img:
-        <img src=""></img>
+        <button onclick="getNewImg()">New image</button>
+        <div>
+            <img src=""></img>
+        </div>
         <script type="text/javascript">
-            $.getJSON('https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho', function (data){
-                console.log(data);
-                $('img').attr('src', data.data.image_url.replace('http','https'));
-            })
+            getNewImg();
+            function getNewImg(){
+                $.getJSON('https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC', function (data){
+                    console.log(data);
+                    $('img').attr('src', data.data.image_url.replace('http:','https:'));
+                })
+            }
         </script>
     </body>
 </html>
